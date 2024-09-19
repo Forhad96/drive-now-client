@@ -32,7 +32,7 @@ const FeaturedCard = ({car}) => {
       <div className="p-6">
         <header className="mb-4">
           <h3 className="text-xl font-medium text-slate-700">{car.name}</h3>
-          <p className="text-sm text-slate-700">Price per hour: {car.pricePerHour}</p>
+          <p className="text-sm text-slate-800 font-bold">Price per hour: {car.pricePerHour}</p>
         </header>
         <p>{car?.description}</p>
       </div>
