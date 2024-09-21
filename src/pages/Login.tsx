@@ -17,32 +17,29 @@ const Login = () => {
     const tostId = toast.loading("logging in...");
     try {
       const userInfo = {
-        id: data.userId,
+        email: data.email,
         password: data.password,
       };
       const res = await login(userInfo).unwrap();
+      console.log(res);
       const user = verifyToken(res.data.accessToken) as TUser;
       console.log(user);
       dispatch(setUser({ user, token: res.data.accessToken }));
       toast.success("Login successful", { id: tostId, duration: 2000 });
-      if (res.data.needsPasswordChange) {
-        navigate(`/change-password`);
-      } else {
         navigate(`/${user.role}/dashboard`);
-      }
     } catch (error) {
       toast.error("something went wrong.", { id: tostId, duration: 2000 });
     }
   };
 
   const defaultValues = {
-    userId: "A-0001",
+    email: "forhad@gmail.com",
     password: "admin123",
   };
   return (
     <Row justify="center" align="middle" style={{ height: "100vh" }}>
       <CommonForm onSubmit={onSubmit} defaultValues={defaultValues}>
-        <CommonInput type="text" name="userId" label="ID" />
+        <CommonInput type="text" name="email" label="Email" />
         <CommonInput type="text" name="password" label="Password" />
         <Button htmlType="submit">Login</Button>
       </CommonForm>
