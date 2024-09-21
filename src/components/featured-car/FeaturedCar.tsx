@@ -1,17 +1,22 @@
+import { Button } from "antd";
 import { useGetAllCarsQuery } from "../../redux/features/car/CarMangement.api";
 import Container from "../Shared/Container";
 
 export default function FeaturedCar() {
     const {data} = useGetAllCarsQuery(undefined)
-    console.log(data);
   return (
     <Container>
-    <div className="flex justify-between items-center gap-4">
-
-      {data?.data?.map((car,idx) => (
-        <FeaturedCard car={car} />
-      ))}
-    </div>
+      <div className="flex justify-between sm:text-center md:mx-auto mb-20">
+        <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
+          Featured Car
+        </h3>
+        <Button type="primary" className="bg-green-900">view All</Button>
+      </div>
+      <div className="flex justify-between items-center gap-4">
+        {data?.data?.result?.slice(0,3).map((car, idx) => (
+          <FeaturedCard key={idx} car={car} />
+        ))}
+      </div>
     </Container>
   );
 }
@@ -19,8 +24,7 @@ export default function FeaturedCar() {
 const FeaturedCard = ({car}) => {
     console.log(car);
   return (
-    <div className="overflow-hidden  rounded bg-white text-slate-500 shadow-md shadow-slate-200">
-      {/*  <!-- Image --> */}
+    <div className="overflow-hidden cursor-pointer rounded bg-white text-slate-500 shadow-md shadow-slate-200">
       <figure>
         <img
           src="https://cdn.pixabay.com/photo/2016/04/17/22/10/mercedes-benz-1335674_1280.png"

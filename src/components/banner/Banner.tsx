@@ -79,7 +79,7 @@ const Banner =  () => {
           </p>
           <div className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0 xl:justify-start">
             <a
-              href="javascript:void(0)"
+              href="/"
               className="flex items-center justify-center gap-x-2 py-2 px-4 text-white font-medium bg-gray-800 duration-150 hover:bg-gray-700 active:bg-gray-900 rounded-lg md:inline-flex"
             >
               Browse Cars
@@ -97,7 +97,7 @@ const Banner =  () => {
               </svg>
             </a>
             <a
-              href="javascript:void(0)"
+              href="/"
               className="flex items-center justify-center gap-x-2 py-2 px-4 text-gray-700 hover:text-gray-500 font-medium duration-150 active:bg-gray-100 border rounded-lg md:inline-flex"
             >
               Book Now

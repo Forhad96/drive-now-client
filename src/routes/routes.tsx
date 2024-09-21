@@ -8,12 +8,25 @@ import ProtectedRoute from '../components/layout/ProtectedRoute';
 import ChangePassword from '../pages/ChangePassword';
 import userPaths from './user.routes';
 import Home from '../pages/Home';
+import Cars from '../components/cars/Cars';
+import HomeLayout from '../components/layout/HomeLayout';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>,
+    element: <HomeLayout />,
+    children: [
+      {
+        path: "",
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "cars",
+        element: <Cars />,
+      },
+    ],
   },
   {
     path: "/admin",
@@ -33,6 +46,7 @@ const router = createBrowserRouter([
     ),
     children: routesGenerator(userPaths),
   },
+
   {
     path: "/login",
     element: <Login />,
