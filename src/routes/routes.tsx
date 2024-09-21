@@ -1,16 +1,16 @@
-import { createBrowserRouter } from 'react-router-dom';
-import App from '../App';
-import routesGenerator from '../utils/routesGenerator';
-import { adminPaths } from './admin.routes';
-import Login from '../pages/Login';
-import Register from '../pages/Register';
-import ProtectedRoute from '../components/layout/ProtectedRoute';
-import ChangePassword from '../pages/ChangePassword';
-import userPaths from './user.routes';
-import Home from '../pages/Home';
-import Cars from '../components/cars/Cars';
-import HomeLayout from '../components/layout/HomeLayout';
-
+import { createBrowserRouter } from "react-router-dom";
+import App from "../App";
+import routesGenerator from "../utils/routesGenerator";
+import { adminPaths } from "./admin.routes";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import ProtectedRoute from "../components/layout/ProtectedRoute";
+import ChangePassword from "../pages/ChangePassword";
+import userPaths from "./user.routes";
+import Home from "../pages/Home";
+import Cars from "../components/cars/Cars";
+import HomeLayout from "../components/layout/HomeLayout";
+import SignUp from "../pages/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "cars",
         element: <Cars />,
+      },
+      {
+        path: "sing-up",
+        element: <SignUp />,
       },
     ],
   },

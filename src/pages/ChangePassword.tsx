@@ -1,6 +1,6 @@
 import { Button, Row } from "antd";
-import PHForm from "../components/form/PHForm";
-import PHInput from "../components/form/PHInput";
+import CommonForm from "../components/form/CommonForm";
+import CommonInput from "../components/form/CommonInput";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 
 import { TResponse } from "../types";
@@ -27,11 +27,11 @@ const ChangePassword = () => {
 
   return (
     <Row justify="center" align="middle" style={{ height: "100vh" }}>
-      <PHForm onSubmit={onSubmit}>
-        <PHInput type="text" name="oldPassword" label="Old Password" />
-        <PHInput type="text" name="newPassword" label="New Password" />
+      <CommonForm onSubmit={onSubmit}>
+        <CommonInput type="text" name="oldPassword" label="Old Password" />
+        <CommonInput type="text" name="newPassword" label="New Password" />
         <Button htmlType="submit">Login</Button>
-      </PHForm>
+      </CommonForm>
     </Row>
   );
 };

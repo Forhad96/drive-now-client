@@ -6,8 +6,8 @@ import { verifyToken } from "../utils/verifyToken";
 import { useLoginMutation } from "../redux/features/auth/authApi";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import PHForm from "../components/form/PHForm";
-import PHInput from "../components/form/PHInput";
+import CommonForm from "../components/form/CommonForm";
+import CommonInput from "../components/form/CommonInput";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -41,11 +41,11 @@ const Login = () => {
   };
   return (
     <Row justify="center" align="middle" style={{ height: "100vh" }}>
-      <PHForm onSubmit={onSubmit} defaultValues={defaultValues}>
-        <PHInput type="text" name="userId" label="ID" />
-        <PHInput type="text" name="password" label="Password" />
+      <CommonForm onSubmit={onSubmit} defaultValues={defaultValues}>
+        <CommonInput type="text" name="userId" label="ID" />
+        <CommonInput type="text" name="password" label="Password" />
         <Button htmlType="submit">Login</Button>
-      </PHForm>
+      </CommonForm>
     </Row>
   );
 };

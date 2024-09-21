@@ -6,42 +6,32 @@ import {
   SubmitHandler,
   useForm,
 } from "react-hook-form";
-// type TDefaultValues = {
-//   userId: string;
-//   password: string;
-// };
+
 type TFromConfig = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   defaultValues?: Record<string, any>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   resolver?: any;
 };
 
 type TPHFormProps = {
   onSubmit: SubmitHandler<FieldValues>;
   children: ReactNode;
-  // defaultValues?: TDefaultValues;
 } & TFromConfig;
 
-const PHForm = ({
+const CommonForm = ({
   onSubmit,
   children,
   defaultValues,
   resolver,
 }: TPHFormProps) => {
-  const fromConfig: TFromConfig = {};
-  if (defaultValues) {
-    fromConfig["defaultValues"] = defaultValues;
-  }
-  if (resolver) {
-    fromConfig["resolver"] = resolver;
-  }
-  const methods = useForm(fromConfig);
+  const methods = useForm({
+    defaultValues,
+    resolver,
+  });
 
-const submit:SubmitHandler<FieldValues> = (data)=>{
-  onSubmit(data)
-  methods.reset()
-}
+  const submit: SubmitHandler<FieldValues> = (data) => {
+    onSubmit(data);
+    methods.reset();
+  };
 
   return (
     <FormProvider {...methods}>
@@ -52,4 +42,4 @@ const submit:SubmitHandler<FieldValues> = (data)=>{
   );
 };
 
-export default PHForm;
+export default CommonForm;
