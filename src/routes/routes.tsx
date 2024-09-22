@@ -7,45 +7,29 @@ import Register from "../pages/Register";
 import ProtectedRoute from "../components/layout/ProtectedRoute";
 import ChangePassword from "../pages/ChangePassword";
 import userPaths from "./user.routes";
-import Home from "../pages/Home";
-import Cars from "../components/cars/Cars";
-import HomeLayout from "../components/layout/HomeLayout";
-import SignUp from "../pages/SignUp";
+import { homePaths } from "./home.routes";
+import DashboardLayout from "../components/layout/DashboardLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <HomeLayout />,
-    children: [
-      {
-        path: "",
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: "cars",
-        element: <Cars />,
-      },
-      {
-        path: "sing-up",
-        element: <SignUp />,
-      },
-    ],
+    element: <App />,
+    children: routesGenerator(homePaths),
   },
   {
     path: "/admin",
     element: (
       <ProtectedRoute role="admin">
-        <App />
+        <DashboardLayout />
       </ProtectedRoute>
     ),
     children: routesGenerator(adminPaths),
   },
   {
-    path: "/user",
+    path: "/user/dashboard",
     element: (
       <ProtectedRoute role="user">
-        <App />
+        <DashboardLayout/>
       </ProtectedRoute>
     ),
     children: routesGenerator(userPaths),

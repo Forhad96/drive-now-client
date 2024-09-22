@@ -1,4 +1,4 @@
-import { Layout, Menu,} from "antd";
+import { Layout, Menu, MenuProps } from "antd";
 import sidebarItemsGenerator from "../../utils/sidebarItemsGenerator";
 import { adminPaths } from "../../routes/admin.routes";
 import { useAppSelector } from "../../redux/hooks";
@@ -6,36 +6,41 @@ import { selectCurrentToken, TUser } from "../../redux/features/auth/authSlice";
 import { verifyToken } from "../../utils/verifyToken";
 import userPaths from "../../routes/user.routes";
 
-
 const { Sider } = Layout;
 const userRole = {
   ADMIN: "admin",
-USER:"admin"
+  USER: "user",
 };
 
-const Sidebar = ({collapsed}:{collapsed:boolean}) => {
-  
-const token = useAppSelector(selectCurrentToken);
+const Sidebar = ({ collapsed }: { collapsed: boolean }) => {
+  const token = useAppSelector(selectCurrentToken);
 
-let user = {role:"admin"};
+  let user: TUser | undefined;
 
-if (token) {
-  user = verifyToken(token);
-}
-  let sidebarItems;
-
-  switch ((user as TUser)?.role) {
-    case userRole.ADMIN:
-      sidebarItems = sidebarItemsGenerator(adminPaths, userRole.ADMIN);
-      break;
-    case userRole.USER:
-      sidebarItems = sidebarItemsGenerator(userPaths, userRole.USER);
-      break;
-
-    default:
-      break;
+  if (token) {
+    user = verifyToken(token) as TUser;
   }
 
+  let sidebarItems: MenuProps["items"] | undefined;
+
+  switch (user?.role) {
+    case userRole.ADMIN:
+      sidebarItems = sidebarItemsGenerator(
+        adminPaths,
+        userRole.ADMIN
+      ) as MenuProps["items"];
+      break;
+    case userRole.USER:
+      sidebarItems = sidebarItemsGenerator(
+        userPaths,
+        userRole.USER
+      ) as MenuProps["items"];
+      break;
+    default:
+      sidebarItems = undefined;
+      break;
+  }
+console.log(sidebarItems);
   return (
     <Sider
       style={{ height: "100vh", position: "sticky", top: "0", left: "0" }}
@@ -48,7 +53,6 @@ if (token) {
       <div
         style={{
           color: "white",
-
           height: "4rem",
           display: "flex",
           justifyContent: "center",
@@ -60,10 +64,11 @@ if (token) {
       <Menu
         theme="dark"
         mode="inline"
-        defaultSelectedKeys={["4"]}
+        defaultSelectedKeys={["Dashboard"]}
         items={sidebarItems}
       />
     </Sider>
   );
 };
+
 export default Sidebar;

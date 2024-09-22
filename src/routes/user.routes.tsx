@@ -1,3 +1,4 @@
+import Bookings from "../pages/userDashboard/Bookings";
 import UserDashboard from "../pages/userDashboard/UserDashboard";
 
 const userPaths = [
@@ -6,6 +7,12 @@ const userPaths = [
     path: "dashboard",
     element: <UserDashboard />,
   },
+  {
+    name: "Bookings",
+    path: "bookings",
+    element: <Bookings />,
+  },
+
 ];
 
 export default userPaths;
