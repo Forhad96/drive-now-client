@@ -29,6 +29,7 @@ export type TQueryParams = {
 };
 // export type TResponseRedux = TResponse & TMeta
 export type TCar = {
+  _id:string;
   name: string;
   description: string;
   brand: string;

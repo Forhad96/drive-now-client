@@ -1,6 +1,10 @@
+import { FC } from "react";
 import { Link } from "react-router-dom";
-
-const CarsCard = ({ car }) => {
+import { TCar } from "../../types";
+type CarsCardProps ={
+  car:TCar
+}
+const CarsCard:FC<CarsCardProps> = ({ car }) => {
   return (
     <div
       key={car?._id}
@@ -14,7 +18,7 @@ const CarsCard = ({ car }) => {
         />
       </a>
       <span className="absolute top-0 left-0 w-28 translate-y-4 -translate-x-6 -rotate-45 bg-primary text-center text-sm text-white">
-        Trending
+        {car?.status}
       </span>
       <div className="mt-4 px-5 pb-5">
         {/* <a href="#">
@@ -38,7 +42,7 @@ const CarsCard = ({ car }) => {
         </div>
       </div>
 
-      <Link to={`/productDetails/${car?._id}`}>
+      <Link to={`/cars/${car?._id}`}>
         <button className="bg-primary px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
           Details
         </button>

@@ -80,7 +80,7 @@ const Banner =  () => {
           <div className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0 xl:justify-start">
             <a
               href="/"
-              className="flex items-center justify-center gap-x-2 py-2 px-4 text-white font-medium bg-gray-800 duration-150 hover:bg-gray-700 active:bg-gray-900 rounded-lg md:inline-flex"
+              className="flex items-center justify-center gap-x-2 py-2 px-4 text-white font-medium bg-primary duration-150 hover:bg-primary/90 active:bg-gray-900 rounded-lg md:inline-flex"
             >
               Browse Cars
               <svg
@@ -124,7 +124,7 @@ const Banner =  () => {
               alt=""
             />
             <button
-              className="absolute w-16 h-16 rounded-full inset-0 m-auto duration-150 bg-blue-500 hover:bg-blue-600 ring-offset-2 focus:ring text-white"
+              className="absolute w-16 h-16 rounded-full inset-0 m-auto duration-150 bg-primary hover:bg-primary/90 ring-offset-2 focus:ring text-white"
               onClick={() => setVideoPopUp(true)}
             >
               <svg
