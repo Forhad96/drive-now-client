@@ -1,4 +1,4 @@
-import CarDetails from "../components/CarDetails/CarDetails";
+import CarDetails from "../components/carDetails/CarDetails";
 import Cars from "../components/cars/Cars";
 import Home from "../pages/Home";
 import SignUp from "../pages/SignUp";

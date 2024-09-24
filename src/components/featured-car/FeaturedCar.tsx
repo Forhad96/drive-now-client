@@ -1,19 +1,21 @@
 import { Button } from "antd";
-import { useGetAllCarsQuery } from "../../redux/features/car/CarMangement.api";
+import { useGetAllCarsQuery } from "../../redux/features/car/CarManagement.api";
 import Container from "../Shared/Container";
 
 export default function FeaturedCar() {
-    const {data} = useGetAllCarsQuery(undefined)
+  const { data } = useGetAllCarsQuery(undefined);
   return (
     <Container>
       <div className="flex justify-between sm:text-center md:mx-auto mb-20">
         <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
           Featured Car
         </h3>
-        <Button type="primary" className="bg-green-900">view All</Button>
+        <Button type="primary" className="bg-green-900">
+          view All
+        </Button>
       </div>
       <div className="flex justify-between items-center gap-4">
-        {data?.data?.result?.slice(0,3).map((car, idx) => (
+        {data?.data?.result?.slice(0, 3).map((car, idx) => (
           <FeaturedCard key={idx} car={car} />
         ))}
       </div>
@@ -21,8 +23,8 @@ export default function FeaturedCar() {
   );
 }
 
-const FeaturedCard = ({car}) => {
-    console.log(car);
+const FeaturedCard = ({ car }) => {
+  console.log(car);
   return (
     <div className="overflow-hidden cursor-pointer rounded bg-white text-slate-500 shadow-md shadow-slate-200">
       <figure>
@@ -36,7 +38,9 @@ const FeaturedCard = ({car}) => {
       <div className="p-6">
         <header className="mb-4">
           <h3 className="text-xl font-medium text-slate-700">{car.name}</h3>
-          <p className="text-sm text-slate-800 font-bold">Price per hour: {car.pricePerHour}</p>
+          <p className="text-sm text-slate-800 font-bold">
+            Price per hour: {car.pricePerHour}
+          </p>
         </header>
         <p>{car?.description}</p>
       </div>

@@ -6,7 +6,7 @@ type TPHDatePicker = {
   label: string;
 };
 
-const PHTimePicker = ({ name, label }: TPHDatePicker) => {
+const DNTimePicker = ({ name, label }: TPHDatePicker) => {
   const { control } = useFormContext();
 
   return (
@@ -32,4 +32,4 @@ const PHTimePicker = ({ name, label }: TPHDatePicker) => {
   );
 };
 
-export default PHTimePicker;
+export default DNTimePicker;

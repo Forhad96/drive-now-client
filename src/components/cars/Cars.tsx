@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useGetAllCarsQuery } from "../../redux/features/car/CarMangement.api";
+import { useGetAllCarsQuery } from "../../redux/features/car/CarManagement.api";
 import Container from "../Shared/Container";
 
 import { Select, Slider, Tabs } from "antd";
@@ -33,7 +33,7 @@ const tabItems = [
 const Cars = () => {
   const { data } = useGetAllCarsQuery(undefined);
   // console.log(data.data.result);
-  const cars = data?.data?.result as TCar[]
+  const cars = data?.data?.result as TCar[];
 
   const handleChange = (value: string) => {
     console.log(`selected ${value}`);

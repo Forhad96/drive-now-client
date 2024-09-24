@@ -1,14 +1,15 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { TCar } from "../../types";
+import BookingFrom from "../bookings/BookingFrom";
 
 type CarInfoProps = Partial<TCar> & {
-  onAddToCart: () => void;
   onWishlist: () => void;
   rating: string;
   reviews: string;
 };
 
 const CarInfo: FC<CarInfoProps> = ({
+  _id,
   name,
   model,
   pricePerDay,
@@ -22,9 +23,14 @@ const CarInfo: FC<CarInfoProps> = ({
   location,
   status,
   seats,
-  onAddToCart,
   onWishlist,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+    const showModal = () => {
+      setIsModalOpen(true);
+    };
+
+
   return (
     <div className="w-full md:w-1/2 px-4">
       <h2 className="text-3xl font-bold mb-2">{name}</h2>
@@ -65,12 +71,11 @@ const CarInfo: FC<CarInfoProps> = ({
       {/* Action Buttons */}
       <div className="flex space-x-4 mb-6">
         <button
-          onClick={onAddToCart}
+          onClick={showModal}
           className="bg-primary flex gap-2 items-center text-white px-6 py-2 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         >
           Book Now
         </button>
-
       </div>
 
       {/* Key Features */}
@@ -82,7 +87,8 @@ const CarInfo: FC<CarInfoProps> = ({
           ))}
         </ul>
       </div>
+      <BookingFrom isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} carName={name} carId={_id}/>
     </div>
   );
 };
-export default CarInfo
+export default CarInfo;

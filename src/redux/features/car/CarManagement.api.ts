@@ -1,4 +1,3 @@
-import { TCar, TResponse } from "../../../types";
 import { baseApi } from "../../api/baseApi";
 
 const carManagementApi = baseApi.injectEndpoints({

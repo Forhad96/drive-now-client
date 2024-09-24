@@ -1,12 +1,12 @@
 // Product.js
 import React, { FC, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useGetSingleCarsQuery } from "../../redux/features/car/CarMangement.api";
+import { useGetSingleCarsQuery } from "../../redux/features/car/CarManagement.api";
 import { TCar } from "../../types";
 import CarInfo from "./CarInfo";
 import CarImage from "./CarImage";
 
-const CarDetails:FC = () => {
+const CarDetails: FC = () => {
   const { id } = useParams();
   const { data } = useGetSingleCarsQuery(id);
   const carData = data?.data as TCar;
@@ -27,10 +27,6 @@ const CarDetails:FC = () => {
     setMainImage(src);
   };
 
-  const handleAddToCart = () => {
-    console.log("Added to cart");
-  };
-
   const handleWishlist = () => {
     console.log("Added to wishlist");
   };
@@ -45,6 +41,7 @@ const CarDetails:FC = () => {
             onThumbnailClick={handleThumbnailClick}
           />
           <CarInfo
+            _id={carData?._id}
             name={carData?.name}
             model={carData?.model}
             pricePerDay={carData?.pricePerDay}
@@ -55,7 +52,6 @@ const CarDetails:FC = () => {
             reviews="120"
             description={carData?.description}
             features={carData?.features}
-            onAddToCart={handleAddToCart}
             onWishlist={handleWishlist}
           />
         </div>
