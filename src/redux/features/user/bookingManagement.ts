@@ -2,22 +2,22 @@ import { baseApi } from "../../api/baseApi";
 
 const bookingManagement = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    // getAllCars: builder.query({
-    //   query: (args) => {
-    //     const params = new URLSearchParams();
-    //     if (args) {
-    //       args.forEach((item: { name: string; value: string }) => {
-    //         params.append(item.name, item.value);
-    //       });
-    //     }
+    getMyBookings: builder.query({
+      query: () => {
+        // const params = new URLSearchParams();
+        // if (args) {
+        //   args.forEach((item: { name: string; value: string }) => {
+        //     params.append(item.name, item.value);
+        //   });
+        // }
 
-    //     return {
-    //       url: "/cars",
-    //       method: "GET",
-    //       // params,
-    //     };
-    //   },
-    // }),
+        return {
+          url: "/bookings/my-bookings",
+          method: "GET",
+          // params,
+        };
+      },
+    }),
     // getSingleCars: builder.query({
     //   query: (id) => {
     //     console.log(id);
@@ -38,5 +38,5 @@ const bookingManagement = baseApi.injectEndpoints({
   }),
 });
 
-
-export const {useAddBookingMutation}= bookingManagement
+export const { useAddBookingMutation, useGetMyBookingsQuery } =
+  bookingManagement;

@@ -1,6 +1,7 @@
-import AdminDashboard from "../pages/admin/AdminDashboard";
-import ManageBookings from "../pages/admin/ManageBookings";
-import ManageCars from "../pages/admin/ManageCars";
+import AdminDashboard from "../pages/adminDashboard/AdminDashboard";
+import CreateCar from "../pages/adminDashboard/CreateCar";
+import ManageBookings from "../pages/adminDashboard/ManageBookings";
+import ManageCars from "../pages/adminDashboard/ManageCars";
 
 
 export const adminPaths = [
@@ -13,6 +14,11 @@ export const adminPaths = [
     name: "Manage Cars",
     path: "manage-cars",
     element: <ManageCars />,
+  },
+  {
+    name: "Create Car",
+    path: "create-car",
+    element: <CreateCar />,
   },
   {
     name: "Manage Bookings",

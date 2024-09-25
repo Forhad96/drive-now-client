@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks";
+import { selectCurrentUser } from "../../redux/features/auth/authSlice";
 
 interface NavItemsProps {
   isToggleOpen: boolean;
@@ -28,6 +30,8 @@ const navItems = [
   },
 ];
 const NavItems: React.FC<NavItemsProps> = ({ isToggleOpen }) => {
+  const user = useAppSelector(selectCurrentUser)
+  console.log(user);
   return (
     <ul
       role="menubar"
@@ -52,6 +56,20 @@ const NavItems: React.FC<NavItemsProps> = ({ isToggleOpen }) => {
           </NavLink>
         </li>
       ))}
+
+      {
+        user?.role &&
+          <NavLink
+            to={`${user?.role}/dashboard`}
+            className={({ isActive }) =>
+              `flex items-center gap-2 py-4 transition-colors duration-300 ${
+                isActive ? "text-highlight" : "hover:text-highlight"
+              } focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8`
+            }
+          >
+            <span>{"Dashboard"}</span>
+          </NavLink>
+      }
     </ul>
   );
 };

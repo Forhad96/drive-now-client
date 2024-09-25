@@ -1,4 +1,4 @@
-import Bookings from "../pages/userDashboard/Bookings";
+import MyBookings from "../pages/userDashboard/MyBookings";
 import UserDashboard from "../pages/userDashboard/UserDashboard";
 
 const userPaths = [
@@ -9,8 +9,13 @@ const userPaths = [
   },
   {
     name: "Bookings",
-    path: "bookings",
-    element: <Bookings />,
+    path: "my-bookings",
+    element: <MyBookings/>,
+  },
+  {
+    name: "Return Car",
+    path: "return-car",
+    element: <MyBookings/>,
   },
 
 ];

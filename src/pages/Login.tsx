@@ -26,7 +26,7 @@ const Login = () => {
       console.log(user);
       dispatch(setUser({ user, token: res.data.accessToken }));
       toast.success("Login successful", { id: tostId, duration: 2000 });
-        navigate(`/${user.role}/dashboard`);
+      navigate(`/${user.role}/dashboard`);
     } catch (error) {
       toast.error("something went wrong.", { id: tostId, duration: 2000 });
     }
@@ -41,7 +41,9 @@ const Login = () => {
       <CommonForm onSubmit={onSubmit} defaultValues={defaultValues}>
         <CommonInput type="text" name="email" label="Email" />
         <CommonInput type="text" name="password" label="Password" />
-        <Button htmlType="submit">Login</Button>
+        <Row justify="space-between" style={{ gap: 20 }}>
+          <Button htmlType="submit">Login</Button>
+        </Row>
       </CommonForm>
     </Row>
   );
