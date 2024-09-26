@@ -33,11 +33,11 @@ const Login = () => {
   };
 
   const defaultValues = {
-    email: "forhad@gmail.com",
-    password: "admin123",
+    // email: "forhad@gmail.com",
+    // password: "admin123",
   };
   return (
-    <Row justify="center" align="middle" style={{ height: "100vh" }}>
+    <Row justify="center" align="middle" style={{ marginTop:"80px"}}>
       <CommonForm onSubmit={onSubmit} defaultValues={defaultValues}>
         <CommonInput type="text" name="email" label="Email" />
         <CommonInput type="text" name="password" label="Password" />

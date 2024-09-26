@@ -16,7 +16,7 @@ export default UserDashboard;
 
 
 
-import React, { FC } from "react";
+import { FC } from "react";
 
 // Define props type
 interface OverviewCardProps {

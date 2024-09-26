@@ -19,13 +19,13 @@ const ProtectedRoute = ({ children, role }: TProtectedRoute) => {
   }
   const dispatch = useAppDispatch();
 
-  // if (role !== undefined && role !== (user as TUser)?.role) {
-  //   dispatch(logout());
-  //   return <Navigate to="/" replace={true} />;
-  // }
-  // if (!token) {
-  //   return <Navigate to="/" replace={true} />;
-  // }
+  if (role !== undefined && role !== (user as TUser)?.role) {
+    dispatch(logout());
+    return <Navigate to="/" replace={true} />;
+  }
+  if (!token) {
+    return <Navigate to="/" replace={true} />;
+  }
 
   return children;
 };

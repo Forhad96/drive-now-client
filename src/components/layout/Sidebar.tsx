@@ -5,6 +5,7 @@ import { useAppSelector } from "../../redux/hooks";
 import { selectCurrentToken, TUser } from "../../redux/features/auth/authSlice";
 import { verifyToken } from "../../utils/verifyToken";
 import userPaths from "../../routes/user.routes";
+import NavLogo from "../navbar/NavLogo";
 
 const { Sider } = Layout;
 const userRole = {
@@ -40,7 +41,7 @@ const Sidebar = ({ collapsed }: { collapsed: boolean }) => {
       sidebarItems = undefined;
       break;
   }
-console.log(sidebarItems);
+// console.log(sidebarItems);
   return (
     <Sider
       style={{ height: "100vh", position: "sticky", top: "0", left: "0" }}
@@ -53,13 +54,12 @@ console.log(sidebarItems);
       <div
         style={{
           color: "white",
-          height: "4rem",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
       >
-        <h1>Drive Now</h1>
+        <NavLogo/>
       </div>
       <Menu
         theme="dark"

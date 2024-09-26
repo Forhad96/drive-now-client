@@ -29,7 +29,7 @@ export type TQueryParams = {
 };
 // export type TResponseRedux = TResponse & TMeta
 export type TCar = {
-  _id:string;
+  _id:string | undefined;
   name: string;
   description: string;
   brand: string;
@@ -43,8 +43,19 @@ export type TCar = {
   status: "available" | "unavailable"; // Enum for car status
   location: string;
   features: string[];
-  pricePerHour: number;
+  pricePerHour: number | undefined;
   pricePerDay?: number; // Optional field
   imageUrl?: string[]; // Optional field
   isDeleted: boolean;
+};
+
+
+export type TBooking = {
+  _id:string;
+  date: string; // The date of the booking in YYYY-MM-DD format
+  user: string; // Identifier for the user (reference to user model)
+  car: string; // Identifier for the booked car (reference to car model)
+  startTime: string; // The start time of the booking in 24hr format (HH:mm)
+  endTime: string; // The end time of the booking in 24hr format (HH:mm)
+  totalCost: number; // The total cost of the booking, default is 0
 };

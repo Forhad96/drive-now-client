@@ -9,19 +9,7 @@ const DNCheckbox: React.FC<TDNCheckboxProp> = ({ options}) => {
     console.log("checked = ", checkedValues);
   };
 
-  const plainOptions = ["sedan", "SUV", "truck", "van", "coupe", "electric"];
-
-  //   const options = [
-  //     { label: "Apple", value: "Apple" },
-  //     { label: "Pear", value: "Pear" },
-  //     { label: "Orange", value: "Orange" },
-  //   ];
-
-  const optionsWithDisabled = [
-    { label: "Apple", value: "Apple" },
-    { label: "Pear", value: "Pear" },
-    { label: "Orange", value: "Orange", disabled: false },
-  ];
+  // const plainOptions = ["sedan", "SUV", "truck", "van", "coupe", "electric"];
 
   return (
     <>

@@ -1,7 +1,8 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink,} from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
-import { selectCurrentUser } from "../../redux/features/auth/authSlice";
+import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";
+import { useDispatch } from "react-redux";
 
 interface NavItemsProps {
   isToggleOpen: boolean;
@@ -20,18 +21,16 @@ const navItems = [
     name: "About Us",
     path: "about",
   },
-  {
-    name: "Bookings",
-    path: "Bookings",
-  },
-  {
-    name: "Login",
-    path: "login",
-  },
+
 ];
 const NavItems: React.FC<NavItemsProps> = ({ isToggleOpen }) => {
   const user = useAppSelector(selectCurrentUser)
-  console.log(user);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    // navigate("/login");
+  };
   return (
     <ul
       role="menubar"
@@ -57,8 +56,8 @@ const NavItems: React.FC<NavItemsProps> = ({ isToggleOpen }) => {
         </li>
       ))}
 
-      {
-        user?.role &&
+      {user?.role ? (
+        <>
           <NavLink
             to={`${user?.role}/dashboard`}
             className={({ isActive }) =>
@@ -69,7 +68,30 @@ const NavItems: React.FC<NavItemsProps> = ({ isToggleOpen }) => {
           >
             <span>{"Dashboard"}</span>
           </NavLink>
-      }
+          <NavLink
+            to={"/login"}
+            onClick={handleLogout}
+            className={({ isActive }) =>
+              `flex items-center gap-2 py-4 transition-colors duration-300 ${
+                isActive ? "text-highlight" : "hover:text-highlight"
+              } focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8`
+            }
+          >
+            <span>{"Logout"}</span>
+          </NavLink>
+        </>
+      ) : (
+        <NavLink
+          to={`login`}
+          className={({ isActive }) =>
+            `flex items-center gap-2 py-4 transition-colors duration-300 ${
+              isActive ? "text-highlight" : "hover:text-highlight"
+            } focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8`
+          }
+        >
+          <span>{"Login"}</span>
+        </NavLink>
+      )}
     </ul>
   );
 };

@@ -1,8 +1,10 @@
 import { Button, Table, TableColumnsType } from "antd";
+import { useGetAllBookingsQuery } from "../../redux/features/admin/adminManagement.api";
+import { TBooking } from "../../types";
 const ManageBookings = () => {
-  const { data: bookingData, isFetching } = usege(undefined);
-  // console.log(bookingData);
-  const tableData = bookingData?.data?.map(({ _id, date, startTime }) => ({
+  const { data: bookingData, isFetching } = useGetAllBookingsQuery(undefined);
+  console.log(bookingData);
+  const tableData = bookingData?.data?.map(({ _id, date, startTime }:TBooking) => ({
     key: _id,
     date,
     startTime,
@@ -18,7 +20,7 @@ const ManageBookings = () => {
     },
     {
       title: "Action",
-      render: () => <Button>Update</Button>,
+      render: () => <Button>Edit</Button>,
     },
   ];
 

@@ -1,9 +1,13 @@
 import { Button } from "antd";
 import { useGetAllCarsQuery } from "../../redux/features/car/CarManagement.api";
 import Container from "../Shared/Container";
+import { useNavigate } from "react-router-dom";
+import { TCar } from "../../types";
+import { FC } from "react";
 
 export default function FeaturedCar() {
   const { data } = useGetAllCarsQuery(undefined);
+  const carData = data?.data?.result as TCar[];
   return (
     <Container>
       <div className="flex justify-between sm:text-center md:mx-auto mb-20">
@@ -15,18 +19,35 @@ export default function FeaturedCar() {
         </Button>
       </div>
       <div className="flex justify-between items-center gap-4">
-        {data?.data?.result?.slice(0, 3).map((car, idx) => (
-          <FeaturedCard key={idx} car={car} />
+        {carData?.slice(0, 3).map((car) => (
+          <FeaturedCard
+            _id={car?._id}
+            name={car?.name}
+            description={car?._id}
+            pricePerHour={car?.pricePerDay}
+          />
         ))}
       </div>
     </Container>
   );
 }
 
-const FeaturedCard = ({ car }) => {
-  console.log(car);
+const FeaturedCard: FC<Partial<TCar>> = ({
+  _id,
+  name,
+  description,
+  pricePerHour,
+}) => {
+  // console.log(car);
+  const navigate = useNavigate();
+  const handleGoto = () => {
+    navigate(`/cars/${_id}`);
+  };
   return (
-    <div className="overflow-hidden cursor-pointer rounded bg-white text-slate-500 shadow-md shadow-slate-200">
+    <div
+      onClick={handleGoto}
+      className="overflow-hidden cursor-pointer hover:shadow-primary rounded bg-white text-slate-500 shadow-md shadow-slate-200"
+    >
       <figure>
         <img
           src="https://cdn.pixabay.com/photo/2016/04/17/22/10/mercedes-benz-1335674_1280.png"
@@ -37,12 +58,12 @@ const FeaturedCard = ({ car }) => {
       {/*  <!-- Body--> */}
       <div className="p-6">
         <header className="mb-4">
-          <h3 className="text-xl font-medium text-slate-700">{car.name}</h3>
+          <h3 className="text-xl font-medium text-slate-700">{name}</h3>
           <p className="text-sm text-slate-800 font-bold">
-            Price per hour: {car.pricePerHour}
+            Price per hour: {pricePerHour}
           </p>
         </header>
-        <p>{car?.description}</p>
+        <p>{description}</p>
       </div>
     </div>
   );

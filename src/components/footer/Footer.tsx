@@ -24,11 +24,10 @@ const Footer = () => {
           <div className="space-y-6">
             <img src="./drivenow-logo.png" className="w-32" />
             <p className="max-w-md">
-              Nulla auctor metus vitae lectus iaculis, vel euismod massa
-              efficitur.
+              Drive Now offers a seamless and convenient car rental experience.
             </p>
             <ul className="flex flex-wrap items-center gap-4 text-sm sm:text-base">
-              {footerNavs.map((item, idx) => (
+              {footerNavs.map((item) => (
                 <li
                   key={item?.name}
                   className="text-gray-800 hover:text-gray-500 duration-150"

@@ -28,7 +28,7 @@ const adminManagementApi = baseApi.injectEndpoints({
         }
 
         return {
-          url: "/cars",
+          url: "/bookings",
           method: "GET",
           // params,
         };
@@ -53,4 +53,4 @@ const adminManagementApi = baseApi.injectEndpoints({
     }),
   }),
 });
-export const {useAddCarMutation,usege} = adminManagementApi
+export const {useAddCarMutation,useGetAllBookingsQuery} = adminManagementApi

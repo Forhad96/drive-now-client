@@ -20,10 +20,7 @@ const CarInfo: FC<CarInfoProps> = ({
   carType,
   color,
   reviews,
-  location,
-  status,
-  seats,
-  onWishlist,
+
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
