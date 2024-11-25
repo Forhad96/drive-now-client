@@ -5,10 +5,11 @@ type CommonInputProps = {
   type: string;
   name: string;
   label: string;
+  placeHolder?:string;
   disabled?: boolean;
 };
 
-const CommonInput = ({ type, name, label, disabled }: CommonInputProps) => {
+const CommonInput = ({ type, name, label,placeHolder, disabled }: CommonInputProps) => {
   return (
     <Controller
       name={name}
@@ -22,6 +23,7 @@ const CommonInput = ({ type, name, label, disabled }: CommonInputProps) => {
             type={type}
             id={name}
             {...field}
+            placeholder={placeHolder}
             disabled={disabled}
             size="large"
           />
