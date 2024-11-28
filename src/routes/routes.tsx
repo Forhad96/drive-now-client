@@ -7,7 +7,7 @@ import ProtectedRoute from "../components/layout/ProtectedRoute";
 import userPaths from "./user.routes";
 import { homePaths } from "./home.routes";
 import DashboardLayout from "../components/layout/DashboardLayout";
-import NotFound from "../components/carDetails/NotFound";
+import NotFound from "../components/Shared/NotFound";
 
 const router = createBrowserRouter([
   {

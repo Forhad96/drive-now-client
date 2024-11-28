@@ -11,7 +11,7 @@ const CarImage: FC<CarImageProps> = ({
   onThumbnailClick,
 }) => {
   return (
-    <div className="w-full md:w-1/2 px-4 mb-8">
+    <div className="w-full px-4 mb-8">
       <img
         src={mainImage}
         alt="Product"

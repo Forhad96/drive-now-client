@@ -29,7 +29,7 @@ const CarInfo: FC<CarInfoProps> = ({
 
 
   return (
-    <div className="w-full md:w-1/2 px-4">
+    <div className="w-full  px-4">
       <h2 className="text-3xl font-bold mb-2">{name}</h2>
       <p className="text-gray-600 mb-4">Model: {model}</p>
       <p className="text-gray-600 mb-4">Car Type: {carType}</p>
