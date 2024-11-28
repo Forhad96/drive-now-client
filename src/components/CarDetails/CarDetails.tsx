@@ -1,6 +1,6 @@
 // Product.js
 import  { FC, useState } from "react";
-import { useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { useGetSingleCarsQuery } from "../../redux/features/car/CarManagement.api";
 import { TCar } from "../../types";
 import CarInfo from "./CarInfo";
@@ -10,9 +10,6 @@ const CarDetails: FC = () => {
   const { id } = useParams();
   const { data } = useGetSingleCarsQuery(id);
   const carData = data?.data as TCar;
-  console.log(carData);
-
-  // return
   const [mainImage, setMainImage] = useState(
     "https://images.pexels.com/photos/712618/pexels-photo-712618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   );
@@ -32,7 +29,7 @@ const CarDetails: FC = () => {
   };
 
   return (
-    <div className="bg-gray-100">
+    <div className="">
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-wrap -mx-4">
           <CarImage
@@ -61,3 +58,4 @@ const CarDetails: FC = () => {
 };
 
 export default CarDetails;
+

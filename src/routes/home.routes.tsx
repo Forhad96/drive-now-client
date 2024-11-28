@@ -11,6 +11,7 @@ export const homePaths = [
     path: "/",
     element: <Home />,
   },
+
   {
     path: "cars",
     element: <Cars />,
