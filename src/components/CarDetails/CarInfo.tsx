@@ -89,3 +89,17 @@ const CarInfo: FC<CarInfoProps> = ({
   );
 };
 export default CarInfo;
+{/* <CarInfo
+_id={carData?._id}
+name={carData?.name}
+model={carData?.model}
+pricePerDay={carData?.pricePerDay}
+pricePerHour={carData?.pricePerHour}
+carType={carData?.carType}
+color={carData?.color}
+rating="4.5"
+reviews="120"
+description={carData?.description}
+features={carData?.features}
+onWishlist={handleWishlist}
+/> */}

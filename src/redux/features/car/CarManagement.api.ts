@@ -21,7 +21,7 @@ const carManagementApi = baseApi.injectEndpoints({
     getSingleCars: builder.query({
 
       query: (id) => {
-        console.log(id);
+        // console.log(id);
         return {
           url: `/cars/${id}`,
           method: "GET",
