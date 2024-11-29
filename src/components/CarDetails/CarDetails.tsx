@@ -7,6 +7,7 @@ import CarInfo from "./CarInfo";
 import CarImage from "./CarImage";
 import CarServiceInfo from "../carServiceInfo/CarServiceInfo";
 import AmenitiesFeatures from "./AmenitiesFeatures";
+import PoliciesAgreement from "../policiesAgreement/PoliciesAgreement";
 
 const CarDetails: FC = () => {
   const { id } = useParams();
@@ -41,6 +42,7 @@ const CarDetails: FC = () => {
           />
           <CarServiceInfo/>
           <AmenitiesFeatures/>
+          <PoliciesAgreement/>
           <CarInfo
             _id={carData?._id}
             name={carData?.name}
