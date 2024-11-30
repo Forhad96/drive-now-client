@@ -10,6 +10,7 @@ const BreadcrumbBanner: FC = () => {
 
   const { data: carData, isError, isLoading } = useGetSingleCarsQuery(carId);
   // Generate breadcrumbs, always starting with "Home"
+  console.log(carData);
   const breadcrumbPaths = [
     { label: "Home", path: "/" },
     ...pathname

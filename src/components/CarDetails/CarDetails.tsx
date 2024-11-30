@@ -35,13 +35,13 @@ const CarDetails: FC = () => {
 
   return (
     <Container>
-      <div className="mx-auto grid grid-cols-5 gap-10 px-4 py-8">
-        <div className="sticky top-0 col-span-2">
+      <div className="relative grid md:grid-cols-5 gap-10 px-4 py-8">
+        <div className=" md:col-span-2">
           <CarFeatureCard />
         </div>
         <div
-          className="col-span-3 -mx-4 overflow-y-auto"
-          style={{ maxHeight: "100vh" }}
+          className="md:col-span-3 -mx-4 overflow-y-auto max-h-screen "
+          // style={{ maxHeight: "100vh" }}
         >
           <CarImage
             mainImage={selectedImage}
@@ -94,7 +94,7 @@ const CarFeatureCard = () => {
   ];
 
   return (
-    <div className="max-w-sm max-h-fit p-6 bg-light-input rounded-lg shadow-lg">
+    <div className="w-full md:max-w-xs md:sticky top-0 max-h-fit p-6 bg-primary/5 rounded-lg shadow-lg">
       <div className="text-4xl font-bold mb-2">
         $219<span className="text-lg font-normal">/Per Day</span>
       </div>
