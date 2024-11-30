@@ -21,6 +21,10 @@ const navItems = [
     name: "About Us",
     path: "about",
   },
+  {
+    name: "Contact",
+    path: "contact",
+  },
 
 ];
 const NavItems: React.FC<NavItemsProps> = ({ isToggleOpen }) => {

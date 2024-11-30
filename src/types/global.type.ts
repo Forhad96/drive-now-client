@@ -29,7 +29,7 @@ export type TQueryParams = {
 };
 // export type TResponseRedux = TResponse & TMeta
 export type TCar = {
-  _id:string | undefined;
+  _id: string | undefined;
   name: string;
   description: string;
   brand: string;
@@ -37,21 +37,26 @@ export type TCar = {
   year: number;
   color: string;
   isElectric: boolean;
-  carType: "sedan" | "SUV" | "truck" | "van" | "coupe" | "electric"; // Enum for car type
+  carType: string;
+  door: number;
+  passengers: number;
+  transmission: string;
+  luggage: number;
+  airCondition: boolean;
   seats: number;
   mileage: number;
-  status: "available" | "unavailable"; // Enum for car status
+  status: string;
   location: string;
   features: string[];
-  pricePerHour: number | undefined;
-  pricePerDay?: number; // Optional field
-  imageUrl?: string[]; // Optional field
+  pricePerHour: number;
+  pricePerDay: number;
+  imageUrl: string[];
   isDeleted: boolean;
+  __v: number;
 };
 
-
 export type TBooking = {
-  _id:string;
+  _id: string;
   date: string; // The date of the booking in YYYY-MM-DD format
   user: string; // Identifier for the user (reference to user model)
   car: string; // Identifier for the booked car (reference to car model)

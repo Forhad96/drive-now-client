@@ -1,4 +1,8 @@
+import { TCar } from "../../../types";
 import { baseApi } from "../../api/baseApi";
+interface ApiResponse<T> {
+  data: T;
+}
 
 const carManagementApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -16,18 +20,16 @@ const carManagementApi = baseApi.injectEndpoints({
           method: "GET",
           // params,
         };
-      }
+      },
     }),
     getSingleCars: builder.query({
-
       query: (id) => {
-        // console.log(id);
         return {
           url: `/cars/${id}`,
           method: "GET",
-          // params,
         };
-      }
+      },
+      transformResponse: (response: ApiResponse<TCar>) => response.data, // Transform response to avoid data.data
     }),
     addCar: builder.mutation({
       query: (data) => ({
@@ -39,5 +41,5 @@ const carManagementApi = baseApi.injectEndpoints({
   }),
 });
 
-
-export const {useGetAllCarsQuery,useAddCarMutation,useGetSingleCarsQuery} = carManagementApi
+export const { useGetAllCarsQuery, useAddCarMutation, useGetSingleCarsQuery } =
+  carManagementApi;

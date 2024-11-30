@@ -5,6 +5,7 @@ type CarImageProps = {
   thumbnails: string[];
   onThumbnailClick: (src: string) => void;
 };
+
 const CarImage: FC<CarImageProps> = ({
   mainImage,
   thumbnails,
@@ -24,7 +25,7 @@ const CarImage: FC<CarImageProps> = ({
             key={index}
             src={src}
             alt={`Thumbnail ${index + 1}`}
-            className="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
+            className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
             onClick={() => onThumbnailClick(src)}
           />
         ))}
@@ -32,4 +33,5 @@ const CarImage: FC<CarImageProps> = ({
     </div>
   );
 };
-export default CarImage
+
+export default CarImage;

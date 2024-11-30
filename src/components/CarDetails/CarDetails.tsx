@@ -3,18 +3,17 @@ import { FC, useState, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { useGetSingleCarsQuery } from "../../redux/features/car/CarManagement.api";
 import { TCar } from "../../types";
-import CarInfo from "./CarInfo";
 import CarImage from "./CarImage";
 import CarServiceInfo from "../carServiceInfo/CarServiceInfo";
 import AmenitiesFeatures from "./AmenitiesFeatures";
 import PoliciesAgreement from "../policiesAgreement/PoliciesAgreement";
 import Container from "../Shared/Container";
+import CarInfoCard from "./CarInfoCard";
 
 const CarDetails: FC = () => {
   const { id } = useParams();
   const { data } = useGetSingleCarsQuery(id);
-  const carDetails = data?.data as TCar;
-// console.log(carDetails);
+  const carDetails = data as TCar;
   const [selectedImage, setSelectedImage] = useState(
     "https://images.pexels.com/photos/712618/pexels-photo-712618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   );
@@ -31,13 +30,13 @@ const CarDetails: FC = () => {
 
   const onThumbnailClick = (src: string) => setSelectedImage(src);
 
-  const addToWishlist = () => console.log("Added to wishlist");
+  // const addToWishlist = () => console.log("Added to wishlist");
 
   return (
     <Container>
-      <div className="relative grid md:grid-cols-5 gap-10 px-4 py-8">
+      <div className="relative grid md:grid-cols-5 gap-1 px-4 py-8">
         <div className=" md:col-span-2">
-          <CarFeatureCard />
+          <CarInfoCard car={carDetails} />
         </div>
         <div
           className="md:col-span-3 -mx-4 overflow-y-auto max-h-screen "
@@ -49,7 +48,7 @@ const CarDetails: FC = () => {
             onThumbnailClick={onThumbnailClick}
           />
           <CarServiceInfo />
-          <AmenitiesFeatures />
+          <AmenitiesFeatures  feature={carDetails?.features}/>
           <PoliciesAgreement />
         </div>
       </div>
@@ -59,96 +58,3 @@ const CarDetails: FC = () => {
 
 export default CarDetails;
 
-const CarFeatureCard = () => {
-  const carFeatures = [
-    {
-      label: "Doors",
-      value: "4",
-      icon: "M8 10h.01M12 10h.01M16 10h.01M9 16h6m-6 4h6a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z",
-    },
-    {
-      label: "Passengers",
-      value: "2",
-      icon: "M13 16h-1v-4h1m0-4h.01M16.5 20h-9a2.5 2.5 0 01-2.5-2.5v-11A2.5 2.5 0 017.5 4h9a2.5 2.5 0 012.5 2.5v11a2.5 2.5 0 01-2.5 2.5z",
-    },
-    {
-      label: "Transmission",
-      value: "Auto",
-      icon: "M4 16c0 2.21 3.582 4 8 4s8-1.79 8-4-3.582-4-8-4-8 1.79-8 4z",
-    },
-    {
-      label: "Age",
-      value: "4",
-      icon: "M19.428 15.341A8 8 0 118 3.2M22 12a10 10 0 11-7.03-9.84",
-    },
-    {
-      label: "Luggage",
-      value: "2",
-      icon: "M3 10h11m4 0h5M3 14h5m4 0h5m4 0h5M5 6h4m4 0h10",
-    },
-    {
-      label: "Air Condition",
-      value: "Yes",
-      icon: "M3 8h7a4 4 0 014 4h6a4 4 0 014-4V5a2 2 0 00-2-2H5a2 2 0 00-2 2v3z",
-    },
-  ];
-
-  return (
-    <div className="w-full md:max-w-xs md:sticky top-0 max-h-fit p-6 bg-primary/5 rounded-lg shadow-lg">
-      <div className="text-4xl font-bold mb-2">
-        $219<span className="text-lg font-normal">/Per Day</span>
-      </div>
-      <div className="space-y-3 border-t border-gray-700 pt-4">
-        {carFeatures.map((feature, index) => (
-          <div className="flex items-center justify-between" key={index}>
-            <span className="flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d={feature.icon}
-                />
-              </svg>
-              {feature.label}
-            </span>
-            <span>{feature.value}</span>
-          </div>
-        ))}
-      </div>
-      <BookingOptions />
-    </div>
-  );
-};
-
-import ReusableButton from "../Shared/ReusableButton";
-const BookingOptions = () => {
-  return (
-    <div className="flex justify-between items-center my-5">
-      <div className="flex justify-center space-x-4">
-        <ReusableButton label="Book Now" size="medium" />
-      </div>
-      <p>OR</p>
-      <a className="">
-        <svg
-          width="40"
-          className="bg-primary p-1 rounded-full"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M17.6 6.31999C16.8669 5.58141 15.9943 4.99596 15.033 4.59767C14.0716 4.19938 13.0406 3.99622 12 3.99999C10.6089 4.00135 9.24248 4.36819 8.03771 5.06377C6.83294 5.75935 5.83208 6.75926 5.13534 7.96335C4.4386 9.16745 4.07046 10.5335 4.06776 11.9246C4.06507 13.3158 4.42793 14.6832 5.12 15.89L4 20L8.2 18.9C9.35975 19.5452 10.6629 19.8891 11.99 19.9C14.0997 19.9001 16.124 19.0668 17.6222 17.5816C19.1205 16.0965 19.9715 14.0796 19.99 11.97C19.983 10.9173 19.7682 9.87634 19.3581 8.9068C18.948 7.93725 18.3505 7.05819 17.6 6.31999ZM12 18.53C10.8177 18.5308 9.65701 18.213 8.64 17.61L8.4 17.46L5.91 18.12L6.57 15.69L6.41 15.44C5.55925 14.0667 5.24174 12.429 5.51762 10.8372C5.7935 9.24545 6.64361 7.81015 7.9069 6.80322C9.1702 5.79628 10.7589 5.28765 12.3721 5.37368C13.9853 5.4597 15.511 6.13441 16.66 7.26999C17.916 8.49818 18.635 10.1735 18.66 11.93C18.6442 13.6859 17.9355 15.3645 16.6882 16.6006C15.441 17.8366 13.756 18.5301 12 18.53ZM15.61 13.59C15.41 13.49 14.44 13.01 14.26 12.95C14.08 12.89 13.94 12.85 13.81 13.05C13.6144 13.3181 13.404 13.5751 13.18 13.82C13.07 13.96 12.95 13.97 12.75 13.82C11.6097 13.3694 10.6597 12.5394 10.06 11.47C9.85 11.12 10.26 11.14 10.64 10.39C10.6681 10.3359 10.6827 10.2759 10.6827 10.215C10.6827 10.1541 10.6681 10.0941 10.64 10.04C10.64 9.93999 10.19 8.95999 10.03 8.56999C9.87 8.17999 9.71 8.23999 9.58 8.22999H9.19C9.08895 8.23154 8.9894 8.25465 8.898 8.29776C8.8066 8.34087 8.72546 8.403 8.66 8.47999C8.43562 8.69817 8.26061 8.96191 8.14676 9.25343C8.03291 9.54495 7.98287 9.85749 8 10.17C8.0627 10.9181 8.34443 11.6311 8.81 12.22C9.6622 13.4958 10.8301 14.5293 12.2 15.22C12.9185 15.6394 13.7535 15.8148 14.58 15.72C14.8552 15.6654 15.1159 15.5535 15.345 15.3915C15.5742 15.2296 15.7667 15.0212 15.91 14.78C16.0428 14.4856 16.0846 14.1583 16.03 13.84C15.94 13.74 15.81 13.69 15.61 13.59Z"
-            fill="#fff"
-          ></path>
-        </svg>
-      </a>
-    </div>
-  );
-};

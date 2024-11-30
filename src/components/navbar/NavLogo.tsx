@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 
 const NavLogo = () => {
   return (
-    <Link to="/">
-      <img className="size-20 object-fill" src="/drivenow-logo.png" alt="Drive Now" />
+    <Link to="/" className="text-2xl font-bold">
+      {/* <img className="size-20 object-fill" src="/driveNow-logo.png" alt="Drive Now" /> */}
+      <span className="text-primary">Drive</span>Now
     </Link>
   );
 };

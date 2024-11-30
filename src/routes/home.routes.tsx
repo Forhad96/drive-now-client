@@ -4,6 +4,7 @@ import About from "../pages/About";
 import ContactUs from "../pages/ContactUs";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+import Service from "../pages/Service";
 import SignUp from "../pages/SignUp";
 
 export const homePaths = [
@@ -37,5 +38,9 @@ export const homePaths = [
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/service",
+    element: <Service />,
   },
 ];

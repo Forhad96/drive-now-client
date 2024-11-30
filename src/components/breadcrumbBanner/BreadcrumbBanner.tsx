@@ -7,10 +7,10 @@ const BreadcrumbBanner: FC = () => {
   const { pathname } = useLocation();
   const pathSegments = pathname.split("/").filter(Boolean);
   const carId = pathSegments[1]; // Assuming the ID is the second segment
-
+console.log(pathname);
   const { data: carData, isError, isLoading } = useGetSingleCarsQuery(carId);
   // Generate breadcrumbs, always starting with "Home"
-  console.log(carData);
+  // console.log(carData);
   const breadcrumbPaths = [
     { label: "Home", path: "/" },
     ...pathname
@@ -21,7 +21,7 @@ const BreadcrumbBanner: FC = () => {
         let label = segment.charAt(0).toUpperCase() + segment.slice(1);
         if (index === 1 && carData) {
           // Replace ID with car name
-          label = carData?.data?.name || "Unknown Car"; // Assuming carData has a 'name' property
+          label = carData?.name || "Unknown Car"; // Assuming carData has a 'name' property
         }
         return {
           label,
@@ -47,9 +47,9 @@ const BreadcrumbBanner: FC = () => {
 
         {/* Content */}
         <div className="relative z-10 text-center">
-          {isLoading ? (
+          {carData && isLoading ? (
             <p>Loading...</p>
-          ) : isError ? (
+          ) : carData && isError ? (
             <p>Error loading car details</p>
           ) : (
             <>
