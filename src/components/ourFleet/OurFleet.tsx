@@ -1,12 +1,13 @@
 
 import CommonSlider from "../Shared/CommonSlider/CommonSlider";
 import SliderAction from "../Shared/CommonSlider/SliderAction";
+import Container from "../Shared/Container";
 import SectionHeader from "../Shared/SectionHeader";
 
 const OurFleet = () => {
 
   return (
-    <div className="relative">
+    <Container className="relative">
       <SectionHeader
         subtitle="Our Fleet"
         title="Explore our perfect and </br> extensive fleet"
@@ -22,7 +23,7 @@ const OurFleet = () => {
         buttonColor="bg-primary"
 
       />
-    </div>
+    </Container>
   );
 };
 export default OurFleet;

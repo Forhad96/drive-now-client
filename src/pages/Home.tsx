@@ -1,5 +1,6 @@
 import Banner from "../components/banner/Banner";
 import CustomerTestimonials from "../components/customerTestimonials/CustomerTestimonials";
+import FAQSection from "../components/faqSection/FAQSection";
 import FeaturedCar from "../components/featured-car/FeaturedCar";
 import OurFleet from "../components/ourFleet/OurFleet";
 import ServiceSection from "../components/Service/ServiceSection";
@@ -11,6 +12,7 @@ const Home = () => {
 <OurFleet/>
 <ServiceSection/>
 <StatsSection/>
+<FAQSection/>
       {/* <FeaturedCar />
       <CustomerTestimonials /> */}
     </div>
