@@ -36,9 +36,10 @@ export default function FAQSection() {
   }
 
   return (
-    <div className="min-h-screen bg-[#fff5f5] rounded-2xl p-8 md:p-16">
+      <div className="min-h-screen bg-[#fff5f5] rounded-2xl p-8 md:p-16">
       <Container>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <SectionHeader size='large' alignment='left' title="Everything you need to know about our services" subtitle="Frequently Asked Questions" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left side - Image Composition */}
           <div className="relative w-full h-[400px] md:h-[500px]">
             {/* Background images */}
