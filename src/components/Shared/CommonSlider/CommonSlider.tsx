@@ -29,14 +29,14 @@ const CommonSlider: React.FC<CommonSliderProps> = ({
   children,
   slidesPerView = 4,
   spaceBetween = 10,
-  slidesPerGroup,
+  slidesPerGroup=1,
   loop = false,
   className = "",
   sliderId,
   speed = 800,
   freeMode = false,
   autoplay = false,
-  grabCursor = false,
+  grabCursor = true,
   setSwiperState,
   breakpoints: customBreakpoints,
   ...props
@@ -71,7 +71,7 @@ console.log(uniqueId);
   const modules = [Pagination, Navigation, FreeMode, Autoplay];
 
   return (
-    <div className={`my-2.5 ${className}`}>
+    <div className={`my-2.5 ${className} cursor-grab`}>
       <Swiper
         slidesPerGroup={slidesPerGroup}
         slidesPerView={slidesPerView}

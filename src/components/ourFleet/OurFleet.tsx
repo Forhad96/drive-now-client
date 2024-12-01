@@ -12,14 +12,13 @@ const OurFleet = () => {
         subtitle="Our Fleet"
         title="Explore our perfect and </br> extensive fleet"
       />
-      <CommonSlider sliderId="ourFleet" >
+      <CommonSlider loop={true} sliderId="ourFleet" >
         {[1, 2, 3, 4, 5, 6].map((item) => (
           <CarCard key={item} />
         ))}
       </CommonSlider>
       <SliderAction
         sliderId="ourFleet"
-
         buttonColor="bg-primary"
 
       />
