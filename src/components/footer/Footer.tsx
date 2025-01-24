@@ -1,3 +1,5 @@
+import NavLogo from "../navbar/NavLogo";
+
 const Footer = () => {
   const footerNavs = [
     {
@@ -22,7 +24,8 @@ const Footer = () => {
       <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
         <div className="justify-between sm:flex">
           <div className="space-y-6">
-            <img src="./drivenow-logo.png" className="w-32" />
+            {/* <img src="./drivenow-logo.png" className="w-32" /> */}
+            <NavLogo />
             <p className="max-w-md">
               Drive Now offers a seamless and convenient car rental experience.
             </p>

@@ -1,5 +1,3 @@
-"use client";
-
 import React, { ReactNode } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -97,7 +95,7 @@ console.log(uniqueId);
         pagination={{
           el: `.common-swiper-pagination-${uniqueId}`,
           clickable: true,
-          renderBullet: (index, className) =>
+          renderBullet: (_index, className) =>
             `<span class="${className} w-3 h-3 bg-primary rounded-full mx-1"></span>`,
         }}
         className={`swiper-container commonSwiper ${className}`}

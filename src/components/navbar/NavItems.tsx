@@ -52,7 +52,7 @@ const NavItems: React.FC<NavItemsProps> = ({ isToggleOpen }) => {
             className={({ isActive }) =>
               `flex items-center gap-2 py-4 transition-colors duration-300 ${
                 isActive ? "text-highlight" : "hover:text-highlight"
-              } focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8`
+              } focus:text-primaryHover focus:outline-none focus-visible:outline-none lg:px-8`
             }
           >
             <span>{route.name}</span>
@@ -67,7 +67,7 @@ const NavItems: React.FC<NavItemsProps> = ({ isToggleOpen }) => {
             className={({ isActive }) =>
               `flex items-center gap-2 py-4 transition-colors duration-300 ${
                 isActive ? "text-highlight" : "hover:text-highlight"
-              } focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8`
+              } focus:text-primaryHover focus:outline-none focus-visible:outline-none lg:px-8`
             }
           >
             <span>{"Dashboard"}</span>
@@ -90,7 +90,7 @@ const NavItems: React.FC<NavItemsProps> = ({ isToggleOpen }) => {
           className={({ isActive }) =>
             `flex items-center gap-2 py-4 transition-colors duration-300 ${
               isActive ? "text-highlight" : "hover:text-highlight"
-            } focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8`
+            } focus:text-primaryHover focus:outline-none focus-visible:outline-none lg:px-8`
           }
         >
           <span>{"Login"}</span>

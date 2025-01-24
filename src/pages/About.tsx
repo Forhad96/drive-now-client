@@ -1,4 +1,5 @@
 import React from "react";
+import SectionHeader from "../components/Shared/SectionHeader";
 
 const About: React.FC = () => {
   return (
@@ -9,13 +10,14 @@ const About: React.FC = () => {
           <div className="w-full flex-col justify-center lg:items-start items-center gap-10 inline-flex">
             <div className="w-full flex-col justify-center items-start gap-8 flex">
               <div className="flex-col justify-start lg:items-start items-center gap-4 flex">
-                <h6 className="text-gray-400 text-base font-normal leading-relaxed">
+                {/* <h6 className="text-gray-400 text-base font-normal leading-relaxed">
                   About Us
-                </h6>
+                </h6> */}
                 <div className="w-full flex-col justify-start lg:items-start items-center gap-3 flex">
-                  <h2 className="text-primary text-4xl font-bold font-manrope leading-normal lg:text-start text-center">
+                  {/* <h2 className="text-primary text-4xl font-bold font-manrope leading-normal lg:text-start text-center">
                     The Tale of Our Achievement Story
-                  </h2>
+                    </h2> */}
+                    <SectionHeader subtitle="About Us" title="The Tale of Our Achievement Story" alignment="left" />
                   <p className="text-gray-500 text-base font-normal leading-relaxed lg:text-start text-center">
                     Our achievement story is a testament to teamwork and
                     perseverance. Together, we've overcome challenges,
