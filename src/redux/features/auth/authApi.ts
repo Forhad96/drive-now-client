@@ -16,7 +16,7 @@ const authApi = baseApi.injectEndpoints({
       query: (userInfo) => {
         console.log("userInfo");
         return {
-          url: "/auth/signup",
+          url: "/users/create-user",
           method: "POST",
           body: userInfo,
         };

@@ -6,7 +6,7 @@ import BreadcrumbBanner from "./components/breadcrumbBanner/BreadcrumbBanner";
 
 const App: FC = () => {
   const location = useLocation();
-  const pathsToIgnore = ["/", "/login", "/register",]; // Add paths you want to ignore
+  const pathsToIgnore = ["/", "/login","/sign-up", "/register",]; // Add paths you want to ignore
   return (
     <div>
       <Navbar />

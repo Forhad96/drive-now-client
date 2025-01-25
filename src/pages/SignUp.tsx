@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Checkbox, Form, Row, notification } from "antd";
+import { Button, Checkbox, Form, notification } from "antd";
 import CommonForm from "../components/form/CommonForm";
 import CommonInput from "../components/form/CommonInput";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { useSignUpMutation } from "../redux/features/auth/authApi";
-import Link from "antd/es/typography/Link";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 // Define validation schema using Zod
 const signUpSchema = z
@@ -44,7 +44,6 @@ const SignUp = () => {
       });
       navigate("/login");
     } catch (error: any) {
-      // Type the error as any
       notification.error({
         message: "Registration Failed",
         description: error?.message || "Something went wrong!",
@@ -62,24 +61,26 @@ const SignUp = () => {
   };
 
   return (
-    <div style={{ height: "100vh" }}>
-      <div className="text-center">
-        <div className="my-5 space-y-2">
-          <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">
-            Create an account
-          </h3>
-          <p>
-            Already have an account?{" "}
-            <a
-              href=""
-              className="font-medium text-indigo-600 hover:text-indigo-500"
-            >
-              Log in
-            </a>
-          </p>
-        </div>
-      </div>
-      <Row justify="center" align="middle">
+    <div className="bg-gray-100 py-20 flex items-center justify-center">
+      <div className="flex flex-col items-center gap-4 border border-gray-300 bg-white p-10 rounded-lg shadow-lg w-full max-w-md">
+        {/* Heading Section */}
+        <h1 className="text-3xl font-extrabold text-gray-800 text-center">
+          Join <span className="text-primary">Drive Now</span>
+        </h1>
+        <p className="text-gray-500 text-center">
+          Already have an account?{" "}
+          <span
+            className="text-primary font-medium cursor-pointer hover:underline"
+            onClick={() => navigate("/login")}
+          >
+            Log in
+          </span>
+        </p>
+        <p className="text-gray-500 text-sm text-center">
+          Enter your details to create an account.
+        </p>
+
+        {/* Form Section */}
         <CommonForm
           resolver={zodResolver(signUpSchema)}
           onSubmit={onSubmit}
@@ -106,14 +107,19 @@ const SignUp = () => {
             ]}
           >
             <Checkbox>
-              I agree to the <Link href="/terms">Terms and Conditions</Link>
+              I agree to the <Link className="text-primary font-medium hover:underline" to="/terms">Terms and Conditions</Link>
             </Checkbox>
           </Form.Item>
 
-          <br />
-          <Button htmlType="submit">Sign Up</Button>
+          {/* Submit Button */}
+          <Button
+            htmlType="submit"
+            className="bg-primary text-white w-full mt-5 py-2 rounded-md hover:bg-primaryHover transition-all"
+          >
+            Sign Up
+          </Button>
         </CommonForm>
-      </Row>
+      </div>
     </div>
   );
 };

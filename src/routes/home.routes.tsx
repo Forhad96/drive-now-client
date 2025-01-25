@@ -32,7 +32,7 @@ export const homePaths = [
     element: <ContactUs />,
   },
   {
-    path: "sing-up",
+    path: "/sign-up",
     element: <SignUp />,
   },
   {
