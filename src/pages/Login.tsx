@@ -37,15 +37,21 @@ const Login = () => {
     // password: "admin123",
   };
   return (
-    <Row justify="center" align="middle" style={{ marginTop:"80px"}}>
-      <CommonForm onSubmit={onSubmit} defaultValues={defaultValues}>
-        <CommonInput type="text" name="email" label="Email" />
-        <CommonInput type="text" name="password" label="Password" />
-        <Row justify="space-between" style={{ gap: 20 }}>
-          <Button htmlType="submit">Login</Button>
-        </Row>
-      </CommonForm>
-    </Row>
+<div className="bg-gray-100  py-20 flex items-center justify-center">
+<div className="flex flex-col items-center gap-2 border-2 border-gray-200 p-12  rounded-lg shadow-md w-96 mx-auto mt-10 ">
+      <h1  className="text-2xl font-bold text-center">Welcome back to <br /> Drive Now</h1>
+      <p className="text-gray-500">Enter your email and password to login</p>
+
+        <CommonForm onSubmit={onSubmit} defaultValues={defaultValues}>
+          <CommonInput type="text" name="email" label="Email" />
+          <CommonInput type="text" name="password" label="Password" />
+          <Row justify="space-between" style={{ gap: 20 }}>
+            <Button className="bg-primary w-full text-light-buttonText dark:text-dark-buttonText" htmlType="submit">Login</Button>
+          </Row>
+        </CommonForm>
+
+    </div>
+</div>
   );
 };
 

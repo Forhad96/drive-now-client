@@ -20,6 +20,7 @@ const CommonInput = ({ type, name, label,placeHolder, disabled }: CommonInputPro
           help={error ? error.message : null}
         >
           <Input
+          className="focus:outline-none hover:border-primary w-full   focus:border-primary focus:ring-2 focus:ring-primary"
             type={type}
             id={name}
             {...field}
